@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Música - Ezequiel Albornoz</title>
+	<link rel="shortcut icon" href="favicon/icon.png" type="image/x-icon">
+	<link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+	<div class="app">
+		<aside class="sidebar">
+			<div class="logo">
+				<span>🎵</span>
+				<span>Mi Música</span>
+			</div>
+
+			<nav class="menu">
+				<button id="btnBiblioteca" class="menu-btn activo" type="button">
+					<span>🎧</span>
+					<span>Biblioteca</span>
+				</button>
+
+				<button id="btnRepositorio" class="menu-btn" type="button">
+					<span>🌐</span>
+					<span>Repositorio</span>
+				</button>
+
+				<button id="btnLocales" class="menu-btn" type="button">
+					<span>💻</span>
+					<span>Música local</span>
+				</button>
+
+				<button id="btnManual" class="menu-btn" type="button">
+					<span>📖</span>
+					<span>Manual de usuario</span>
+				</button>
+			</nav>
+
+			<div class="selector-carpeta">
+				<label for="selectorCarpeta" class="btn-carpeta">
+					📁 Seleccionar carpeta
+				</label>
+
+				<input type="file" id="selectorCarpeta" webkitdirectory directory multiple hidden>
+
+				<p id="estadoCarpeta">No se seleccionó ninguna carpeta</p>
+			</div>
+		</aside>
+
+		<main class="contenido">
+			<div id="vistaReproductor">
+				<header>
+					<div>
+						<p id="subtituloSeccion">TU BIBLIOTECA</p>
+						<h1>Mis canciones</h1>
+					</div>
+
+					<input type="search" id="buscar" placeholder="Buscar canciones..." autocomplete="off">
+				</header>
+
+				<section class="info-seccion">
+					<div>
+						<h2 id="tituloSeccion">Biblioteca</h2>
+						<span id="cantidadCanciones">0 canciones</span>
+					</div>
+
+					<div class="acciones">
+						<button id="btnAleatorio" type="button" title="Reproducción aleatoria">
+							🔀 Aleatorio
+						</button>
+
+						<button id="btnOrdenar" type="button" title="Ordenar canciones">
+							↕ Ordenar
+						</button>
+					</div>
+				</section>
+
+				<div class="lista-header">
+					<span>#</span>
+					<span>CANCIÓN</span>
+					<span>DURACIÓN</span>
+					<span></span>
+				</div>
+
+				<div id="listaCanciones">
+					<div class="sin-canciones mensaje-vacio">
+						<div class="icono-grande">🎵</div>
+						<h2>Cargando canciones...</h2>
+						<p>Espera mientras se carga la biblioteca.</p>
+					</div>
+				</div>
+			</div>
+
+			<section id="manualUsuario" class="manual-usuario" hidden>
+				<div class="manual-encabezado">
+					<div>
+						<p>GUÍA DE USO</p>
+						<h1>Manual de usuario</h1>
+						<span>Todo lo que necesitas saber para utilizar el reproductor.</span>
+					</div>
+
+					<button id="btnVolverBiblioteca" type="button">← Volver a la biblioteca</button>
+				</div>
+
+				<div class="manual-contenido">
+					<section class="manual-card">
+						<span class="manual-icono">🎵</span>
+						<div>
+							<h2>Biblioteca</h2>
+							<p>La biblioteca es la vista principal del reproductor. Aquí aparecen las canciones disponibles desde el repositorio y las canciones locales que hayas cargado.</p>
+						</div>
+					</section>
+
+					<section class="manual-card">
+						<span class="manual-icono">🌐</span>
+						<div>
+							<h2>Repositorio</h2>
+							<p>En esta sección puedes consultar las canciones incluidas en el repositorio del proyecto. Estas canciones se cargan automáticamente en el reporductor.</p>
+						</div>
+					</section>
+
+					<section class="manual-card">
+						<span class="manual-icono">💻</span>
+						<div>
+							<h2>Música local</h2>
+							<p>Puedes reproducir archivos de audio almacenados en tu computadora. Selecciona una carpeta mediante el botón <strong>📁 Seleccionar carpeta</strong>. Los archivos compatibles serán agregados automáticamente.</p>
+							<p>Se admiten archivos <strong>MP3, WAV, OGG, M4A, AAC y FLAC</strong>.</p>
+						</div>
+					</section>
+
+					<section class="manual-card">
+						<span class="manual-icono">🔎</span>
+						<div>
+							<h2>Buscar canciones</h2>
+							<p>Utiliza el buscador situado en la parte superior para encontrar rápidamente una canción. La búsqueda funciona por nombre de canción y artista.</p>
+						</div>
+					</section>
+
+					<section class="manual-card">
+						<span class="manual-icono">🔀</span>
+						<div>
+							<h2>Reproducción aleatoria</h2>
+							<p>El botón <strong>🔀 Aleatorio</strong> permite reproducir las canciones en un orden aleatorio. Puedes activarlo o desactivarlo cuando quieras.</p>
+						</div>
+					</section>
+
+					<section class="manual-card">
+						<span class="manual-icono">↕</span>
+						<div>
+							<h2>Ordenar canciones</h2>
+							<p>El botón <strong>↕ Ordenar</strong> cambia el orden de las canciones entre orden alfabético ascendente y descendente.</p>
+						</div>
+					</section>
+
+					<section class="manual-card manual-card-ancho">
+						<span class="manual-icono">▶</span>
+						<div>
+							<h2>Reproductor</h2>
+							<p>Cuando seleccionas una canción, el reproductor inferior muestra su nombre, artista y portada. Desde allí puedes controlar la reproducción.</p>
+
+							<div class="manual-controles">
+								<div><strong>⏮</strong><span>Canción anterior</span></div>
+								<div><strong>▶</strong><span>Reproducir o pausar</span></div>
+								<div><strong>⏭</strong><span>Siguiente canción</span></div>
+								<div><strong>🔊</strong><span>Controlar volumen</span></div>
+								<div><strong>━</strong><span>Cambiar posición</span></div>
+							</div>
+						</div>
+					</section>
+
+					<section class="manual-card">
+						<span class="manual-icono">⏱</span>
+						<div>
+							<h2>Barra de progreso</h2>
+							<p>La barra situada debajo de los controles permite ver el progreso de la canción y desplazarte hacia cualquier momento del audio.</p>
+						</div>
+					</section>
+
+					<section class="manual-card">
+						<span class="manual-icono">🔊</span>
+						<div>
+							<h2>Volumen</h2>
+							<p>Utiliza la barra de volumen para aumentar o disminuir el sonido. El reproductor recuerda automáticamente el último volumen utilizado.</p>
+						</div>
+					</section>
+
+					<section class="manual-card">
+						<span class="manual-icono">🗗</span>
+						<div>
+							<h2>Mini reproductor</h2>
+							<p>El botón <strong>🗗</strong> abre el mini reproductor en una ventana independiente cuando el navegador permite utilizar Picture-in-Picture para documentos. Desde esa ventana puedes controlar la canción, el progreso y el volumen.</p>
+						</div>
+					</section>
+
+					<section class="manual-card">
+						<span class="manual-icono">⌨️</span>
+						<div>
+							<h2>Atajos de teclado</h2>
+							<p>Mientras no estés escribiendo en un campo de texto puedes utilizar:</p>
+							<ul>
+								<li><strong>Espacio:</strong> reproducir o pausar.</li>
+								<li><strong>←:</strong> canción anterior.</li>
+								<li><strong>→:</strong> siguiente canción.</li>
+							</ul>
+						</div>
+					</section>
+
+					<section class="manual-card manual-card-ancho">
+						<span class="manual-icono">⚠️</span>
+						<div>
+							<h2>Problemas frecuentes</h2>
+							<ul>
+								<li>Si una canción local no aparece, comprueba que tenga un formato compatible.</li>
+								<li>Los archivos locales solamente están disponibles mientras la página tenga acceso al archivo seleccionado.</li>
+								<li>Si el mini reproductor no se abre, es que tu navegador no es compatible.</li>
+								<li>Si no se escucha el audio, revisa el volumen del reproductor y el volumen general del sistema.</li>
+							</ul>
+						</div>
+					</section>
+
+					<section class="manual-final">
+						<span>🎧</span>
+						<div>
+							<h2>¡Listo para escuchar!</h2>
+							<p>Selecciona una canción, utiliza los controles y disfruta de tu música.</p>
+						</div>
+					</section>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<footer class="reproductor">
+		<div class="reproductor-info">
+			<div class="portada-actual" id="portadaActual">🎵</div>
+
+			<div class="datos-actual">
+				<div id="nombreActual" class="nombre-actual">Ninguna canción</div>
+				<div id="artistaActual" class="artista-actual">Selecciona una canción</div>
+			</div>
+		</div>
+
+		<div class="controles-reproductor">
+			<div class="botones-control">
+				<button id="btnAnterior" type="button" title="Canción anterior" aria-label="Canción anterior">⏮</button>
+				<button id="btnPlay" type="button" title="Reproducir / Pausar" aria-label="Reproducir o pausar" class="btn-play">▶</button>
+				<button id="btnSiguiente" type="button" title="Siguiente canción" aria-label="Siguiente canción">⏭</button>
+			</div>
+
+			<div class="progreso-container">
+				<span id="tiempoActual">0:00</span>
+				<input type="range" id="barraProgreso" min="0" max="100" value="0" step="0.1" aria-label="Progreso de la canción">
+				<span id="duracion">0:00</span>
+			</div>
+		</div>
+
+		<div class="reproductor-opciones">
+			<div class="volumen-control">
+				<span id="iconoVolumen" class="icono-volumen">🔊</span>
+				<input type="range" id="barraVolumen" min="0" max="1" value="1" step="0.01" aria-label="Volumen">
+			</div>
+
+			<button id="btnMiniReproductor" type="button" title="Abrir mini reproductor" aria-label="Abrir mini reproductor">🗗</button>
+		</div>
+	</footer>
+
+	<div id="miniReproductor" class="mini-reproductor" hidden>
+		<div class="mini-info">
+			<div class="mini-portada">🎵</div>
+
+			<div>
+				<div id="miniNombre" class="mini-nombre">Ninguna canción</div>
+				<div id="miniArtista" class="mini-artista">Selecciona una canción</div>
+			</div>
+		</div>
+
+		<div class="mini-controles">
+			<button id="miniAnterior" type="button" title="Canción anterior" aria-label="Canción anterior">⏮</button>
+			<button id="miniPlay" type="button" title="Reproducir / Pausar" aria-label="Reproducir o pausar" class="mini-btn-play">▶</button>
+			<button id="miniSiguiente" type="button" title="Siguiente canción" aria-label="Siguiente canción">⏭</button>
+		</div>
+
+		<div class="mini-progreso">
+			<span id="miniTiempoActual">0:00</span>
+			<input type="range" id="miniBarraProgreso" min="0" max="100" value="0" step="0.1" aria-label="Progreso de la canción">
+			<span id="miniDuracion">0:00</span>
+		</div>
+
+		<div class="mini-volumen">
+			<span id="miniIconoVolumen" class="mini-icono-volumen">🔊</span>
+			<input type="range" id="miniBarraVolumen" min="0" max="1" value="1" step="0.01" aria-label="Volumen">
+		</div>
+	</div>
+
+	<audio id="audio" preload="metadata"></audio>
+	<script src="JS/script.js"></script>
+</body>
+</html>
