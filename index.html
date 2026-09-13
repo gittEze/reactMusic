@@ -262,6 +262,7 @@
 			</div>
 
 			<button id="btnMiniReproductor" type="button" title="Abrir mini reproductor" aria-label="Abrir mini reproductor">🗗</button>
+			<button id="btnReproductorInferior" aria-label="Reproductor inferior">⬇</button>
 		</div>
 	</footer>
 
@@ -291,6 +292,74 @@
 			<span id="miniIconoVolumen" class="mini-icono-volumen">🔊</span>
 			<input type="range" id="miniBarraVolumen" min="0" max="1" value="1" step="0.01" aria-label="Volumen">
 		</div>
+	</div>
+
+	<!-- ------------------------------------------------- -->
+	<div class="reproductor-inferior" id="reproductorInferior">
+
+		<div class="inferior-cancion">
+
+			<div class="inferior-portada">
+				🎵
+			</div>
+
+			<div class="inferior-info">
+				<div id="inferiorNombre">Ninguna canción</div>
+				<div id="inferiorArtista">—</div>
+			</div>
+
+		</div>
+
+
+		<div class="inferior-controles">
+
+			<button id="inferiorAnterior" aria-label="Canción anterior">
+				⏮
+			</button>
+
+			<button id="inferiorPlay" aria-label="Reproducir">
+				▶
+			</button>
+
+			<button id="inferiorSiguiente" aria-label="Canción siguiente">
+				⏭
+			</button>
+
+		</div>
+
+
+		<div class="inferior-progreso">
+
+			<span id="inferiorTiempoActual">0:00</span>
+
+			<input
+				type="range"
+				id="inferiorBarraProgreso"
+				min="0"
+				max="100"
+				value="0"
+			>
+
+			<span id="inferiorDuracion">0:00</span>
+
+		</div>
+
+
+		<div class="inferior-volumen">
+
+			<span id="inferiorIconoVolumen">🔊</span>
+
+			<input
+				type="range"
+				id="inferiorBarraVolumen"
+				min="0"
+				max="1"
+				step="0.01"
+				value="1"
+			>
+
+		</div>
+
 	</div>
 
 	<audio id="audio" preload="metadata"></audio>
